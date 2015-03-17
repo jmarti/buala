@@ -1,0 +1,159 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+  padding: 0;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+
+/* VIEWPORT SYSTEM */
+
+#main.inspiration {
+  margin-top: 46px;
+  padding-bottom: 57px;
+}
+
+#main.experimentation {
+	margin-top: 46px;
+}
+
+#main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.currentViewport {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 400%;
+  -webkit-transition: margin-left 200ms;
+          transition: margin-left 200ms;
+}
+
+#filters-list {
+  order: 1;
+}
+
+#new-filter {
+  order: 2;
+}
+
+#filter-values {
+  order: 3;
+}
+
+#results {
+  order: 4;
+}
+
+.viewport {
+  width: 25%;
+  height: 100%;
+  float: left;
+  padding: 0 5px;
+}
+
+#main.inspiration .currentViewport {
+  margin-left: 0;
+}
+
+#main.new-filter .currentViewport {
+  margin-left: -100%;
+}
+
+#main.filter-values .currentViewport {
+  margin-left: -200%;
+}
+
+#main.results .currentViewport {
+  margin-left: -300%;
+}
+
+
+#main.experimentation {
+  width: 400%;
+}
+
+.value-group { display: none; }
+.viewport.color .value-group.color { display: block }
+.viewport.temperatura .value-group.temperatura { display: block }
+.viewport.textura .value-group.textura { display: block }
+.viewport.gusto .value-group.gusto { display: block }
+.viewport.olor .value-group.olor { display: block }
+.viewport.sensacion .value-group.sensacion { display: block }
+.viewport.ingrediente .value-group.ingrediente { display: block }
+
+.top-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+}
+
+.top-bar #menu-button {
+  width: 28px;
+  height: 46px;
+  float: left;
+}
+
+#main.results #results {
+	left: 300px !important;
+}
+
+@media (max-width: 767px) {
+	#main.results	#results{
+			width: 25% !important;
+		}
+}
+
+/* Let's get this party started */
+.scroll::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+/* Track */
+.scroll::-webkit-scrollbar-track {
+    border-radius: rgba(216,209,200,0.8);
+    margin-right: 1px;
+}
+
+.scroll::-webkit-scrollbar-track-piece {; 
+    background-color: rgba(255,255,255,0.8);
+}
+ 
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    background: rgba(216,209,200,0.8); 
+}

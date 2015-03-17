@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html ng-app ng-controller="FiltersCtrl">
+<head>
+  <title>Búsqueda de inspiración</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <link type="text/css" rel="stylesheet" href="layout.css">
+  <link type="text/css" rel="stylesheet" href="styles.css">
+  <link type="text/css" rel="stylesheet" href="styles-tablet.css">
+  <link type="text/css" rel="stylesheet" href="icons.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  <script src="data.js"></script>
+  <script src="filterctrl.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/angular-1.2.19.js"></script>
+  <script type="text/javascript">
+    //$('selector a').on('click', function(){ return false; });
+
+    var menu_visible=false;
+    var z = 1;
+    function mostrarMenu(){
+      if(z != 1){
+        $('#menu').addClass("show");
+        menu_visible = true;
+        z = 0;
+      }
+    }
+    window.onclick = function(e){
+      if(menu_visible){
+        $('#menu').removeClass("show");
+        menu_visible = false;
+      }
+      z++;
+    }
+
+  </script>
+</head>
+<body class="inspiration">
+
+<header class="top-bar {{ currentViewport }}">
+  <a id="menu-button" href="javascript:mostrarMenu()"><i></i></a>
+  <span id="logo"></span>
+  <a class="back first-level" href="#" ng-click="showViewport('filter-list')">atrás</a>
+  <a class="back second-level" href="#" ng-click="showViewport('new-filter')">atrás</a>
+  <h1 class="title">Búsqueda de inspiración</h1>
+  <div class="right">
+    <a class="options" href="#"></a>
+  </div>
+</header>
+
+<!-- MENU -->
+
+<div id="menu" style="height:{{heightLessParameter('.top-bar')}}">
+  <section class="option level-1">
+    <a id="inspiracion" href="#">
+      <i></i>
+      <span>
+        Inspiración
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="busqueda" href="#">
+      <i></i>
+      <span>
+        Busqueda de inspiración
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Azul, Cítrica, Afrodisíaca<br>
+        <span>(17/7/2014)</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Rojo, Ardiente<br>
+        <span>(15/7/2014)</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-2">
+    <a id="cosas-inspiran" href="#">
+      <i></i>
+      <span>
+        Cosas que me inspiran
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-4">
+    <a class="anadir" href="#">
+      <i></i>
+      <span>
+        Añadir inspiración
+      </span>
+    </a>
+    </section>
+    <section class="option level-1">
+    <a id="experimentacion" href="#">
+      <i></i>
+      <span>
+        Experimentación
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="recetas" href="#">
+      <i></i>
+      <span>
+        Mis recetas <span>(14)</span>
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Callos marinos al jugo de liebre<br>
+        <span class="version en-proceso">Esferificados con conejo</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Callos marinos al jugo de liebre<br>
+        <span class="version validada">Mi versión con anguilas</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-4">
+    <a class="anadir" href="#">
+      <i></i>
+      <span>
+        Nueva receta
+      </span>
+    </a>
+    </section>
+    <section class="option level-1">
+    <a id="mi-cuenta" href="#">
+      <i></i>
+      <span>
+        Mi cuenta
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="cerrar-sesion" href="#">
+      <i></i>
+      <span>
+        Cerrar sesion
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+</div>
+
+<!-- FI MENU -->
+
+<div id="main" class="inspiration {{ currentViewport }}" style="height:{{heightLessParameter(46)}}">
+
+  <div class="currentViewport">
+
+    <!-- 1st pane -->
+    <section id="filters-list" class="viewport {{ ifElements(activeFilters) }}" style="left:{{widthLessParameter(300)}}; height:{{heightLessParameter(46)}}">
+      <h2 class="title">Filtros seleccionados</h2>
+      <div ng-repeat="(name, data) in activeFilters">
+        <article class="filter {{ removeAccents(name) }}">
+          <a href="#" class="link {{ removeAccents(name) }}" ng-click="selectFilterType(name)">
+            <i class="{{ removeAccents(name) }}"></i>
+            <span>
+              <h3>{{ name }}</h3>
+              <p>{{ data.values.join(', ') }}</p>
+            </span>
+          </a>
+          <a href="" class="delete" ng-click="removeFilter(name)"></a>
+          </article>
+      </div>
+
+      <a id="add-filter" class="filter" href="#" ng-click="showViewport('new-filter')">
+        <i></i>
+        <span>
+          <h2>Añadir filtro...</h2>
+        </span>
+      </a>
+
+      <div class="colophon {{ currentViewport }}">
+        <a class="results" ng-click="showViewport('results')">10 recetas encontradas</a>
+        <a class="filters" ng-click="showViewport('filters-list')">Volver a buscar</a>
+      </div>
+    </section>
+
+
+    <!-- 2nd pane -->
+    <section id="new-filter" class="viewport {{ removeAccents(futureType) }}">
+      <div class="sensitive-filters">
+        <h2 class="title">Añadir filtro</h2>
+        <article class="filter {{ removeAccents(filter.name) }}" ng-repeat="filter in newFilters">
+          <a id="{{ removeAccents(filter.name) }}" href="#;" class="link" ng-click="selectFilterType(filter.name)">
+            <i></i>
+                <h3>{{ filter.name }}</h3>
+            </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3d pane -->
+    <section id="filter-values" class="viewport {{ removeAccents(futureType) }}">
+      <article id="new-filter-{{ removeAccents(filter.name) }}"
+               class="value-group {{ removeAccents(filter.name) }}"
+               ng-repeat="filter in newFilters">
+
+        <h2>Añadir filtro {{ filter.name }}</h2>
+            <section class="filter {{ removeAccents(choice) }}" ng-repeat="choice in filter.choices" ng-if="!filter.input">
+                <a class="link value" ng-click="addValueForType($event, choice)" ng-class="{'selec': addedAsFilter(filter.name, choice)}">
+                  <i></i>
+                    <span>
+                      <h3>{{ choice }}</h3>
+                    </span>
+              </a>
+            </section>
+            <section class="filter input" ng-if="filter.input">
+                <form ng-submit="addValueForType($event, choice)">
+                <input type="text" placeholder="Añadir ingrediente" name="choice" ng-model="choice">
+                <button id="submit" type="submit">OK</button>
+              </form>
+            </section>
+      </article>
+    </section>
+
+    <!-- results -->
+    <section id="results" class="viewport" style="left:{{widthLessParameter(0)}}; height:{{heightLessParameter(45)}}; width:{{widthLessParameter(300)}}">
+      <h2 class="title">10 Recetas encontradas</h2>
+          <a href="experimentation.html" class="reciept receipt-{{ result.id }}" ng-repeat="result in results" >
+            <div class="photo"></div>
+            <h3 class="title">{{ result.title }}</h3>
+            <div class="characteristics">
+              <span class="ingredients"><i></i>{{ result.ingredients }}</span>
+              <span class="utensils"><i></i>{{ result.utensils }}</span>
+              <span class="duration"><i></i>{{ result.duration }} min.</span>
+            </div>
+            
+            <!--p class="author">{{ result.author }}</p-->
+          </a>
+    </section>
+  </div>
+</div>
+</body>
+</html>

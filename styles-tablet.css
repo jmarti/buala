@@ -1,0 +1,261 @@
+/*styles-table.css*/
+
+@media (min-width: 768px) {
+
+	#menu{ 
+		height: 720px;
+	}
+
+	#logo{
+		width: 115px;
+		height: 46px;
+		background-image: url('img/logo-buala.svg');
+		background-repeat: no-repeat;
+		background-position: 0 -2px;
+		background-size: cover;
+		display: inline-block;
+		float: left;
+		margin-right: 20px;
+	}
+	.inspiration .top-bar .title {
+		background-image: url('img/separador-logo.png');
+		background-position: 0px 2px;
+		background-repeat: no-repeat;
+		padding-left: 20px;
+
+	}
+	#main.inspiration {
+		position: relative;
+		width: 100%;
+		height: 720px;
+		overflow: hidden;
+		padding: 0;
+		background-color: #fff;
+	}
+
+	#main.experimentation {
+		width: 2065px;
+	}
+
+	.currentViewport {
+		width: 100%;
+		overflow-x: auto;
+	}
+
+	#main.experimentation .currentViewport {
+		width: 400%;
+	}
+
+	#main.inspiration .currentViewport {
+	  margin-left: 0;
+	}
+
+	#main.new-filter .currentViewport {
+	  margin-left: 0;
+	}
+
+	#main.filter-values .currentViewport {
+	  margin-left: 0;
+	}
+
+	.viewport {
+		width: 328px;
+		height: 600px;
+		overflow: auto;
+		background-color: #f6f4f2;
+		margin: 12px 14px;
+		padding: 0 8px;
+		-webkit-border-radius: 6px;
+     	   -moz-border-radius: 6px;
+          		border-radius: 6px;
+	}
+
+	#filters-list.viewport {
+		margin: 0;
+		position: absolute;
+		z-index: 1;
+		height: 720px;
+		width: 300px;
+		background-color: #36302e;
+		right: -300px;
+  		order: 3;
+  		border-radius: 0;
+		-webkit-border-radius: 0;
+     	   -moz-border-radius: 0;
+          		border-radius: 0;
+		-webkit-transition: left 200ms;
+				transition: left 200ms;
+	}
+
+	#results.viewport {
+		position: absolute;
+		margin: 0;
+		-webkit-transition: left 200ms;
+				transition: left 200ms;
+		padding: 0;
+		border-radius: 0;
+	}
+
+	.results h2 {
+		padding: 0 8px;
+	}
+
+	#filters-list.withElements {
+		right: 0;
+	}
+
+	#main.results #filters-list {
+		left: 0 !important;
+	}
+
+	.colophon {
+		position: absolute;
+		bottom: 0;
+	}
+
+
+
+	#new-filter {
+		-webkit-transition: margin-left 200ms;
+				transition: margin-left 200ms;
+	}
+
+	#main.results #new-filter {
+		margin-left: -768px;
+	}
+
+	#main.results #results {
+		position: absolute;
+	}
+
+	
+	.delete:hover {
+	  background: url('img/icons/eliminar-b.svg') no-repeat center; 
+	}
+
+
+/* FILTERS-LIST */ 
+
+	#filters-list h2.title {
+		color: #fff;
+	}
+
+	#filters-list .filter {
+		background-color: #433d38;
+		box-shadow: 0 1px #000;
+	}
+
+	#filters-list .filter p {
+		color: #fff;
+		width: 186px;
+	}
+
+	#filters-list .delete {
+		border-left: 1px solid #000;
+	}
+
+	#filters-list #add-filter {
+		display: none;
+	}
+
+	.colophon {
+		width: 94%;
+		margin: 3% 4%;
+		border-radius: 4px;
+	}
+
+	.colophon.results {
+		width: 92%;
+	}
+
+	#new-filter {
+	  	order: 1;
+	}
+
+	#new-filter.color .color {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.temperatura .temperatura {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.textura .textura {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.gusto .gusto {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.olor .olor {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.sensacion .sensacion {
+	  background-color: #eae6e3;
+	}
+
+	#new-filter.ingrediente .ingrediente {
+	  background-color: #eae6e3;
+	}
+
+	#filter-values {
+		background-color: #fff;
+	  	order: 2;
+	}
+
+	#filter-values.color,
+	#filter-values.temperatura,
+	#filter-values.textura,
+	#filter-values.gusto,
+	#filter-values.olor,
+	#filter-values.sensacion,
+	#filter-values.ingrediente {
+		background-color: #f6f4f2;
+	}
+
+
+	/* RESULTS */
+
+	.reciept {
+		position: relative;
+		width: 260px;
+		//height: 310px;
+		display: inline-block;
+		padding: 0;
+		margin: 10px;
+		box-shadow: 1px 1px 1px 0px #cec4b8;
+	}
+
+	.reciept .photo {
+		order: 1;
+		width: 100%;
+		height: 150px;
+		background-image: url('img/foto-1.png');
+		background-size: cover;
+		-webkit-border-radius: 3px;
+          		border-radius: 3px;
+         margin-bottom: 8px;
+
+	}
+
+	.reciept .characteristics {
+		margin: 4px 8px;
+		padding-bottom: 8px;
+		order: 2;
+	}
+
+	.reciept .title {
+		order: 3;
+		margin: 0 10px;
+	}
+
+	.reciept .author {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		order: 4;
+		margin: 0;
+	}
+}

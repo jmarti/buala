@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html ng-app ng-controller="ModeloCtrl">
+<head>
+	<title>Experimentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="layout.css">
+	<link type="text/css" rel="stylesheet" href="styles.css">
+	<link type="text/css" rel="stylesheet" href="styles-tablet.css">
+	<link type="text/css" rel="stylesheet" href="icons.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+	<script src="modelo.js"></script>
+	<script src="data.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/angular-1.2.19.js"></script>
+	<script>
+	var menu_visible=false;
+    var z = 1;
+    function mostrarMenu(){
+      if(z != 1){
+        $('#menu').addClass("show");
+        menu_visible = true;
+        z = 0;
+      }
+    }
+    window.onclick = function(e){
+      if(menu_visible){
+        $('#menu').removeClass("show");
+        menu_visible = false;
+      }
+      z++;
+    }
+	$(document).ready(function(){
+		$('.showme').click(function() {
+			if ($(this).siblings('.dropdown').is (':hidden')){
+	            $(this).siblings('.dropdown').css("display","block");
+	            $(this).children('.data').children('.extras').css("visibility","hidden");
+	            $(this).children('.extras').css("visibility","hidden");//per filtres només serveix
+	        }else{
+	            $(this).siblings('.dropdown').css("display","none");
+	            $(this).children('.data').children('.extras').css("visibility","visible");
+	            $(this).children('.extras').css("visibility","visible");//per filtres només serveix
+	        }
+		});
+	});
+	</script>
+</head>
+<body class="experimentation" ng-class="{revealPopup: editor.show}">
+<header class="top-bar">
+	<a id="menu-button" href="javascript:mostrarMenu();">
+		<i></i>
+	</a>
+	<span id="logo"></span>
+	<div class="title">
+		<h1>Callos marinos con jugo de liebre</h1>
+		<p class="subtitle">Mi versión cambiando anguila</p>
+	</div>
+		<div class="right">
+			<a class="options" href="#"></a>
+		</div>
+</header>
+<!-- MENU -->
+
+<div id="menu" style="height:{{heightLessParameter('.top-bar')}}">
+  <section class="option level-1">
+    <a id="inspiracion" href="#">
+      <i></i>
+      <span>
+        Inspiración
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="busqueda" href="#">
+      <i></i>
+      <span>
+        Busqueda de inspiración
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Azul, Cítrica, Afrodisíaca<br>
+        <span>(17/7/2014)</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Rojo, Ardiente<br>
+        <span>(15/7/2014)</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-2">
+    <a id="cosas-inspiran" href="#">
+      <i></i>
+      <span>
+        Cosas que me inspiran
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-4">
+    <a class="anadir" href="#">
+      <i></i>
+      <span>
+        Añadir inspiración
+      </span>
+    </a>
+    </section>
+    <section class="option level-1">
+    <a id="experimentacion" href="#">
+      <i></i>
+      <span>
+        Experimentación
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="recetas" href="#">
+      <i></i>
+      <span>
+        Mis recetas <span>(14)</span>
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Callos marinos al jugo de liebre<br>
+        <span class="version en-proceso">Esferificados con conejo</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-3">
+    <a href="#">
+      <i></i>
+      <p>
+        Callos marinos al jugo de liebre<br>
+        <span class="version validada">Mi versión con anguilas</span>
+      </p>
+    </a>
+    </section>
+    <hr class="menu-separator-2">
+    <section class="option level-4">
+    <a class="anadir" href="#">
+      <i></i>
+      <span>
+        Nueva receta
+      </span>
+    </a>
+    </section>
+    <section class="option level-1">
+    <a id="mi-cuenta" href="#">
+      <i></i>
+      <span>
+        Mi cuenta
+      </span>
+    </a>
+    </section>
+    <section class="option level-2">
+    <a id="cerrar-sesion" href="#">
+      <i></i>
+      <span>
+        Cerrar sesion
+      </span>
+    </a>
+    </section>
+    <hr class="menu-separator">
+</div>
+
+<!-- FI MENU -->
+<div id="main" class="experimentation">
+	<div class="currentViewport" >
+
+		<!-- FICHA RECETA -->
+		<section class="ficha-receta" style="height:{{heightLessParameter(46)}}">
+			<h2 class="title">Ficha receta</h2>
+			<div class="container">
+				<div class="header">
+					<img src="img/{{ reciept.file.photo }}">
+					<div class="caracteristicas">
+						<i class="ok {{reciept.file.ok}}"></i>
+						<span class="guests">
+							<i></i>{{ reciept.file.guests}}
+						</span>
+						<span class="right">
+							<i class="notes {{ reciept.file.notes }}"></i>
+							<span class="duration">
+								<i></i>
+								{{ reciept.file.duration + ' min.'}}
+							</span>
+						</span>
+					</div>
+					<div class="description">
+						<p class="title">{{ reciept.file.title }}</p>
+						<p>{{ reciept.file.description }}</p>
+					</div>
+				</div>
+				<a class="ingredients clear" ng-click="click('show')"> <!-- on click: ingredients-list -->
+					<span class="showme">
+						<i class="ingredients-icon"></i><span class="text">Ingredientes</span>
+						<span class="right">
+							<i class="items-icon"></i><span class="text">{{ reciept.file.ingredients.length }}</span>
+						</span>
+					</span>
+					<span class="ingredients-list dropdown {{ click }}"> <!-- on click: notes -->
+						<div ng-repeat="ingredient in reciept.file.ingredients" class="ingredient">
+							<span class="data">
+								<span class="name">{{ ingredient.name }}</span>
+								<span class="qt right">{{ ingredient.qt+' '+ingredient.units }}</span>
+							</span>
+							<span class="notes click">
+								<i></i><span>{{ ingredient.notes }}</span>
+							</span>
+						</div>
+					</span>
+				</a>
+				<a class="utensils"> <!-- on click: utensils-list -->
+					<span class="showme">
+						<i class="utensils-icon"></i><span class="text">Utensilios</span>
+						<span class="right">
+							<i class="items-icon"></i><span class="text">{{ reciept.file.utensils.length }}</span>
+						</span>
+					</span>
+					<div class="utensils-list dropdown" ng-repeat="utensil in reciept.file.utensils">
+						{{ utensil }}
+					</div>
+				</a>
+				<a class="sensitive-filters">
+					<span class="showme">
+						<i class="filters-icon"></i><span class="text">Filtros</span>
+						<span class="right extras" ng-repeat="sense in reciept.file.filters">
+							<i class="{{ removeAccents(sense) }}"></i>
+						</span>
+					</span>
+					<div class="sensitive-list dropdown" ng-repeat="filter in reciept.file.filters">
+						<i class="{{ filter }}"></i><span>{{ filter }}</span>
+					</div>
+				</a>
+				<a class="versions">
+					<span class="showme">
+						<i class="versions-icon"></i><span class="text">Versiones</span>
+						<span class="right">
+							<i class="items-icon"></i><span class="text">{{ reciept.file.versions.length }}</span>
+						</span>
+					</span>
+					<div class="versions-list dropdown" ng-repeat="version in reciept.file.versions">
+						<i class="ok {{ version.ok }}"></i><span class="name">{{ version.name }}</span>
+					</div>
+				</a>
+			</div>
+		</section>
+		<!-- end FICHA RECETA -->
+
+		<section class="elaboration">
+			<h2>Elaboración de la receta</h2>
+
+			<!-- PART -->
+			<article class="part-{{ indexToLetter($index) }}" ng-repeat="part in reciept.parts" ng-if="!part.presentation">
+				<div class="title">
+					<span class="triangle"><span>{{ indexToLetter($index) }}</span></span>
+						<h3>{{ part.title }}</h3>
+						<a class="options"></a>
+				</div>
+				<div class="scroll" style="height:{{heightLessParameter(144)}}">
+				<header>	
+					<a class="header ines">
+						<img class="featured" src="img/{{ part.photo }}">
+						<span class="right">
+							<i class="notes {{ part.notes }}"></i>
+							<span class="duration">
+								<i></i>
+								{{ part.duration[0] }} {{ part.duration[1] }}.
+							</span>
+						</span>
+					</a>
+					<a class="ingredients clear ines">
+						<span class="ingredients-header showme">
+							<i class="ingredients-icon"></i><span class="text">Ingredientes</span>
+							<span class="right">
+								<i class="items-icon"></i><span class="text">{{ part.ingredients.length }}</span>
+							</span>
+						</span>
+						<span class="ingredients-list click dropdown">
+							<div ng-repeat="ingredient in part.ingredients" class="ingredient">
+								<span class="name" ng-click="editNode($event)">{{ ingredient.name }}</span>
+								<span class="qt right" ng-dblclick="editNode($event)">{{ ingredient.qt+' '+ingredient.units }}</span>
+								<div class="click">
+									<span class="notes" ng-dblclick="editNode($event)">{{ ingredient.notes }}</span>
+								</div>
+							</div>
+						</span>
+					</a>
+					<a class="utensils ines">
+						<span class="showme">
+							<i class="utensils-icon"></i><span class="text">Utensilios</span>
+							<span class="right">
+								<i class="items-icon"></i><span class="text" ng-dblclick="editNode($event)">{{ part.utensils.length }}</span>
+							</span>
+						</span>
+						<div class="utensils-list dropdown" ng-repeat="utensil in part.utensils" ng-dblclick="editNode($event)">
+							{{ utensil }}
+						</div>
+					</a>
+				</header>
+
+				<!-- STEP -->
+				<div class="step-{{ $index+1 }} step {{ twoDigits($index+1) }}" ng-repeat="step in part.steps">
+					<div class="head">
+						<span class="triangle"><span>{{ $index+1 }}</span></span>
+					</div>
+
+					<!-- before -->
+					<a class="before ines">
+						<span class="item item-{{ $index+1 }} incons-{{ countProperties(ingredient.documentation) }}" ng-repeat="ingredient in step.before.ingredients">
+							<span class="showme">
+								<i></i>
+								<span class="data">
+									<span class="text">{{ ingredient.name }}</span>
+									<span class="extras" ng-repeat="(type, content) in ingredient.documentation">
+										<i class="{{ type }}" title="{{ content }}"></i>
+									</span>
+								</span>
+							</span>
+							<span class="click dropdown">
+								<span class="info" ng-repeat="(type, content) in ingredient.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+								<span class="edition">
+									<i class="eliminar"></i>
+									<i class="edit"></i>
+								</span>
+							</span>
+						</span>
+						<div class="separator"></div>
+					</a>
+
+					<!-- action -->
+					<a class="process ines">
+						<span class="item item-1 incons-{{ countProperties(step.action.documentation) }}">
+							<span class="showme">
+								<i></i>
+								<span class="data">
+									<span class="text">{{ step.action.name }}</span>
+									<span class="extras">
+										<i class="{{ type }}" title="{{ content }}" ng-repeat="(type, content) in step.action.documentation"></i>
+									</span>
+								</span>
+							</span>
+							<span class="click dropdown">
+								<span class="info" ng-repeat="(type, content) in step.action.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+								<span class="edition">
+									<i class="eliminar"></i>
+									<i class="edit"></i>
+								</span>
+							</span>
+						</span>
+						<div class="separator {{ step.after.type }}"></div>
+					</a>
+
+					<!-- after -->
+					<a class="result ines {{ step.after.type}}">
+						<span class="item item-{{ $index+1 }}" ng-repeat="item in step.after">
+							<i></i><span class="data">
+								<span class="text">{{ item.name }}</span>
+								<span class="extras">
+									<i class="" ng-repeat="(type, content) in step.after.documentation" title="{{ content }}"></i>
+								</span>
+							</span>
+							<span ng-repeat="(type, content) in step.after.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+						</span>
+					</a>
+				</div>
+			</div>
+			</article>
+
+			<!-- PRESENTATION -->
+			<article class="presentation" ng-repeat="part in reciept.parts" ng-if="part.presentation">
+				<div class="title">
+					<span class="triangle"><span>{{ indexToLetter($index) }}</span></span>
+						<h3>{{ part.title }}</h3>
+						<a class="options"></a>
+				</div>
+				<div class="scroll" style="height:{{heightLessParameter(144)}}">
+				<header>	
+					<a class="header ines">
+						<img class="featured" src="img/{{ part.photo }}">
+						<span class="right">
+							<i class="notes {{ part.notes }}"></i>
+							<span class="duration">
+								<i></i>
+								{{ part.duration[0] }} {{ part.duration[1] }}.
+							</span>
+						</span>
+					</a>
+					<a class="ingredients clear ines">
+						<span class="ingredients-header showme">
+							<i class="ingredients-icon"></i><span class="text">Manera de degustarlo</span>
+						</span>
+					</a>
+					<a class="utensils ines">
+						<span class="showme">
+							<i class="utensils-icon"></i><span class="text">Cubiertos</span>
+						</span>
+					</a>
+				</header>
+
+				<!-- STEP -->
+				<div class="step-{{ $index+1 }} step {{ twoDigits($index+1) }}" ng-repeat="step in part.steps">
+					<div class="head">
+						<span class="triangle"><span>{{ $index+1 }}</span></span>
+					</div>
+
+					<!-- before -->
+					<a class="before ines">
+						<span class="item item-{{ $index+1 }} incons-{{ countProperties(ingredient.documentation) }}" ng-repeat="ingredient in step.before.ingredients">
+							<span class="showme">
+								<i></i>
+								<span class="data">
+									<span class="text">{{ ingredient.name }}</span>
+									<span class="extras" ng-repeat="(type, content) in ingredient.documentation">
+										<i class="{{ type }}" title="{{ content }}"></i>
+									</span>
+								</span>
+							</span>
+							<span class="click dropdown">
+								<span class="info" ng-repeat="(type, content) in ingredient.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+								<span class="edition">
+									<i class="eliminar"></i>
+									<i class="edit"></i>
+								</span>
+							</span>
+						</span>
+						<div class="separator"></div>
+					</a>
+
+					<!-- action -->
+					<a class="process ines">
+						<span class="item item-1 incons-{{ countProperties(step.action.documentation) }}">
+							<span class="showme">
+								<i></i>
+								<span class="data">
+									<span class="text">{{ step.action.name }}</span>
+									<span class="extras">
+										<i class="{{ type }}" title="{{ content }}" ng-repeat="(type, content) in step.action.documentation"></i>
+									</span>
+								</span>
+							</span>
+							<span class="click dropdown">
+								<span class="info" ng-repeat="(type, content) in step.action.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+								<span class="edition">
+									<i class="eliminar"></i>
+									<i class="edit"></i>
+								</span>
+							</span>
+						</span>
+						<div class="separator {{ step.after.type }}"></div>
+					</a>
+
+					<!-- after -->
+					<a class="result ines {{ step.after.type}}">
+						<span class="item item-{{ $index+1 }}" ng-repeat="item in step.after">
+							<i></i><span class="data">
+								<span class="text">{{ item.name }}</span>
+								<span class="extras">
+									<i class="" ng-repeat="(type, content) in step.after.documentation" title="{{ content }}"></i>
+								</span>
+							</span>
+							<span ng-repeat="(type, content) in step.after.documentation">
+									<i class="{{ type }}"></i><span>{{ content }}</span>
+								</span>
+						</span>
+					</a>
+				</div>
+			</div>
+			</article>
+		</section>
+	</div>
+</div>
+<div class="overlay">
+</div>
+<div class="pop-up">
+	<div class="top">
+		<i class="cancel"></i>
+		<span>
+			<h2>Editar</h2>
+			<p>{{editor.newValue}}</p>
+		</span>
+		<i class="ok" ng-click="saveEdit()"></i>
+	</div>
+	<form>
+		<label for="item"><i class="ingredient"></i></label><input name="item" type="text" ng-model="editor.newValue"/>
+		<input type="number" value="50"/>
+		<select name="uds">
+			<option value="gramos" selected>gramos</option>
+			<option value="kilos">kilos</option>
+			<option value="unidades">unidades</option>
+			<option value="litros">litros</option>
+			<option value="mililitros">mililitros</option>
+			<option value="trozos">trozo/s</option>
+			<option value="ramas">rama/s</option>
+			<option value="hojas">hoja/s</option>
+		</select>
+		<label for="notas"><i class="notas"></i></label>
+		<textarea name="notas">he probado con la Heinz y es demasiado dulce</textarea>
+		<button class="remove">Eliminar</button>
+	</form>
+</div>
+
+</body>
+</html>

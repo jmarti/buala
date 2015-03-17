@@ -1,0 +1,322 @@
+.option #busqueda i {
+  background-image: url('img/icons/buscar-menu.svg');
+}
+.option #cosas-inspiran i {
+  background-image: url('img/icons/cosas-inspiran.svg');
+}
+.option #experimentacion i {
+  background-image: url('img/icons/experimentacion-menu.svg');
+}
+.option #inspiracion i {
+  background-image: url('img/icons/inspiracion-menu.svg');
+}
+.option #recetas i {
+  background-image: url('img/icons/receta-menu.svg');
+}
+.option #mi-cuenta i {
+  background-image: url('img/icons/mi-cuenta-menu.svg');
+}
+.option #cerrar-sesion i {
+  background-image: url('img/icons/cerrar-sesion-menu.svg');
+}
+.color i {
+  background-image: url('img/icons/color.svg');
+}
+.textura i {
+  background-image: url('img/icons/textura.svg');
+}
+.temperatura i {
+  background-image: url('img/icons/temperatura.svg');
+}
+.gusto i {
+  background-image: url('img/icons/gusto.svg');
+}
+.olor i {
+  background-image: url('img/icons/olor.svg');
+}
+.sensacion i {
+  background-image: url('img/icons/sensacion.svg');
+}
+.ingrediente i {
+  background-image: url('img/icons/ingrediente.svg');
+}
+#new-filter #color i{
+  background-image: url('img/icons/color.svg');
+}
+#new-filter #temperatura i{
+  background-image: url('img/icons/temperatura.svg');
+}
+#new-filter #textura i{
+  background-image: url('img/icons/textura.svg');
+}
+#new-filter #gusto i{
+  background-image: url('img/icons/gusto.svg');
+}
+#new-filter #olor i{
+  background-image: url('img/icons/olor.svg');
+}
+#new-filter #sensacion i{
+  background-image: url('img/icons/sensacion.svg');
+}
+#new-filter #ingrediente i{
+  background-image: url('img/icons/ingrediente.svg');
+}
+#new-filter-color .blanco i{
+  background-image: url('img/icons/color-blanco.svg');
+}
+#new-filter-color .blanco .selec i{
+  background-image: url('img/icons/color-blanco-selec.svg');
+}
+#new-filter-color .gris i{
+  background-image: url('img/icons/color-gris.svg');
+}
+#new-filter-color .gris .selec i{
+  background-image: url('img/icons/color-gris-selec.svg');
+}
+#new-filter-color .negro i{
+  background-image: url('img/icons/color-negro.svg');
+}
+#new-filter-color .negro .selec i{
+  background-image: url('img/icons/color-negro-selec.svg');
+}
+#new-filter-color .amarillo i{
+  background-image: url('img/icons/color-amarillo.svg');
+}
+#new-filter-color .amarillo .selec i{
+  background-image: url('img/icons/color-amarillo-selec.svg');
+}
+#new-filter-color .naranja i{
+  background-image: url('img/icons/color-naranja.svg');
+}
+#new-filter-color .naranja .selec i{
+  background-image: url('img/icons/color-naranja-selec.svg');
+}
+#new-filter-color .marron i{
+  background-image: url('img/icons/color-marron.svg');
+}
+#new-filter-color .marron .selec i{
+  background-image: url('img/icons/color-marron-selec.svg');
+}
+#new-filter-color .rojo i{
+  background-image: url('img/icons/color-rojo.svg');
+}
+#new-filter-color .rojo .selec i{
+  background-image: url('img/icons/color-rojo-selec.svg');
+}
+#new-filter-color .rosa i{
+  background-image: url('img/icons/color-rosa.svg');
+}
+#new-filter-color .rosa .selec i{
+  background-image: url('img/icons/color-rosa-selec.svg');
+}
+#new-filter-color .lila i{
+  background-image: url('img/icons/color-lila.svg');
+}
+#new-filter-color .lila .selec i{
+  background-image: url('img/icons/color-lila-selec.svg');
+}
+#new-filter-color .azul i{
+  background-image: url('img/icons/color-azul.svg');
+}
+#new-filter-color .azul .selec i{
+  background-image: url('img/icons/color-azul-selec.svg');
+}
+#new-filter-color .verde i{
+  background-image: url('img/icons/color-verde.svg');
+}
+#new-filter-color .verde .selec i{
+  background-image: url('img/icons/color-verde-selec.svg');
+}
+.value-group i {
+  background-image: url('img/icons/check.svg');
+}
+.value-group .selec i{
+  background-image: url('img/icons/check-selec.svg');
+}
+#new-filter-temperatura i{
+  background-image: url('img/icons/check-2.svg');
+}
+#new-filter-temperatura .selec i{
+  background-image: url('img/icons/check-selec-2.svg');
+}
+#new-filter-ingrediente i{
+  background-image: url('img/icons/ingrediente.svg');
+}
+#ingrediente-selec i{
+  background-image: url('img/icons/ingrediente-selec.svg');
+}
+.filter.liquida i{
+  background-image: url('img/icons/liquida.svg');
+}
+
+.filter.gel i{
+  background-image: url('img/icons/gel.svg');
+}
+
+.filter.fibrosa i{
+  background-image: url('img/icons/fibrosa.svg');
+}
+
+.filter.aglomerada i{
+  background-image: url('img/icons/aglomerada.svg');
+}
+
+.filter.untuosa i{
+  background-image: url('img/icons/untuosa.svg');
+}
+
+.filter.fragil i{
+  background-image: url('img/icons/fragil.svg');
+}
+
+.filter.vitrea i{
+  background-image: url('img/icons/vitrea.svg');
+}
+
+.filter.dulce i{
+  background-image: url('img/icons/dulce.svg');
+}
+
+.filter.salado i{
+  background-image: url('img/icons/salado.svg');
+}
+
+.filter.acido i{
+  background-image: url('img/icons/acido.svg');
+}
+
+.filter.amargo i{
+  background-image: url('img/icons/amargo.svg');
+}
+
+.filter.unami i{
+  background-image: url('img/icons/unami.svg');
+}
+
+.filter.picante i{
+  background-image: url('img/icons/picante.svg');
+}
+
+.filter.adiposo i{
+  background-image: url('img/icons/adiposo.svg');
+}
+
+.filter.floral i{
+  background-image: url('img/icons/floral.svg');
+}
+
+.filter.resinoso i{
+  background-image: url('img/icons/lenoso.svg');
+}
+
+.filter.citrico i{
+  background-image: url('img/icons/citrico.svg');
+}
+
+.filter.frutal i{
+  background-image: url('img/icons/frutal.svg');
+}
+
+.filter.quimico i{
+  background-image: url('img/icons/quimico.svg');
+}
+
+.filter.mentolado i{
+  background-image: url('img/icons/mentolado.svg');
+}
+
+.filter.quemado i{
+  background-image: url('img/icons/quemado.svg');
+}
+
+.filter.afrodisiaca i{
+  background-image: url('img/icons/afrodisiaca.svg');
+}
+
+.filter.energetica i{
+  background-image: url('img/icons/energetica.svg');
+}
+
+.filter.relaxante i{
+  background-image: url('img/icons/relaxante.svg');
+}
+
+.filter.antidepresiva i{
+  background-image: url('img/icons/antidepresiva.svg');
+}
+
+.filter.recuperadora i{
+  background-image: url('img/icons/recuperadora.svg');
+}
+.elaboration .item .extras .notes {
+  background-image: url('img/icons/comentario-p2.svg');
+}
+
+.elaboration .item .extras .duration {
+  background-image: url('img/icons/tiempo-p2.svg');
+}
+
+.elaboration .item .extras .flame {
+  background-image: url('img/icons/coccio-p2.svg');
+}
+
+.elaboration .item-1 i {
+  background-image: url('img/icons/false.svg');
+}
+
+.elaboration .before .item-1 i{
+  background-image: url('img/icons/ingrediente.svg');
+}
+
+.elaboration .process .item-1 i{
+  background-image: url('img/icons/accion.svg');
+}
+
+.elaboration .result .item-1 i{
+  background-image: url('img/icons/ingrediente-resultado.svg');
+}
+.ficha-receta .sensitive-filters .color{
+  background-image: url('img/icons/color-p2-b.svg');
+}
+.ficha-receta .sensitive-filters .temperatura{
+  background-image: url('img/icons/temperatura-p2-b.svg');
+}
+.ficha-receta .sensitive-filters .textura{
+  background-image: url('img/icons/textura-p2-b.svg');
+}
+.ficha-receta .sensitive-filters .gusto{
+  background-image: url('img/icons/gusto-p2-b.svg');
+}
+.ficha-receta .sensitive-filters .olor{
+  background-image: url('img/icons/olor-p2-b.svg');
+}
+.ficha-receta .sensitive-filters .sensacion{
+  background-image: url('img/icons/sensacion-p2-b.svg');
+}
+
+@media (min-width: 767px) {
+  #filters-list .color i {
+    background-image: url('img/icons/color-b.svg');
+  }
+  #filters-list .textura i {
+    background-image: url('img/icons/textura-b.svg');
+  }
+  #filters-list .temperatura i {
+    background-image: url('img/icons/temperatura-b.svg');
+  }
+  #filters-list .gusto i {
+    background-image: url('img/icons/gusto-b.svg');
+  }
+  #filters-list .olor i {
+    background-image: url('img/icons/olor-b.svg');
+  }
+  #filters-list .sensacion i {
+    background-image: url('img/icons/sensacion-b.svg');
+  }
+  #filters-list .ingrediente i {
+    background-image: url('img/icons/ingrediente-b.svg');
+  }
+  #filters-list .proceso i {
+    background-image: url('img/icons/proceso-b.svg');
+  }
+}
